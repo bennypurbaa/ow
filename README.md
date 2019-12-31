@@ -75,8 +75,15 @@ $ [License](#license)
 	⚠ Make sure your account has been verified (Email & Telp).
 
 ## Update
-	☑ Update 28/10/2019 Initial Release.
-	☑ Now Equipped Information in every tool every time you use it.
+	☑ [30/12/2019] Instagram API issues.
+	☑ [31/12/2019] Update - Initial Release Version 2.
+	☑ [31/12/2019] Problem in some tools because of nodejs error.
+	☑ [31/12/2019] Now Equipped Information in every tool every time you use it.
+	☑ [31/12/2019] Add information on the current Username (Current Account)
+	☑ [31/12/2019] Problem with using this tool in RDP (Ex: TRY TO LOGIN dll).
+	☑ [31/12/2019] Addition of features (Input Total of Target You Want/ITTYW) in some tools.
+	☑ [31/12/2019] The update has been included in the Package so you don't need to update again.
+	☑ [31/12/2019] Improvements In Display Program & Changes in system usage programs to make it easier to use.
 	   
 ## Other Information
 	☆ Aldi Nugraha a.k.a (Ccocot Ccocot).
