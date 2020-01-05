@@ -100,14 +100,6 @@ const Target = async function (link) {
 
 }
 
-async function ngefollow(session, accountId) {
-	try {
-		await Client.Relationship.create(session, accountId);
-		return true
-	} catch (e) {
-		return false
-	}
-}
 
 async function ngeComment(session, id, text) {
 	try {
@@ -140,15 +132,13 @@ const CommentAndLike = async function (session, accountId, text) {
 
 	if (result.length > 0) {
 		const task = [
-			ngefollow(session, accountId),
 			ngeComment(session, result[0].params.id, text),
 			ngeLike(session, result[0].params.id)
 		]
-		const [Follow, Comment, Like] = await Promise.all(task);
-		const printFollow = Follow ? chalk `{green Follow}` : chalk `{red Follow}`;
+		const [Comment, Like] = await Promise.all(task);
 		const printComment = Comment ? chalk `{green Comment}` : chalk `{red Comment}`;
 		const printLike = Like ? chalk `{green Like}` : chalk `{red Like}`;
-		return chalk `{bold.green ${printFollow}:${printComment}:${printLike} ➾ ${text}}`;
+		return chalk `{bold.green ${printComment}:${printLike} ➾ ${text}}`;
 	}
 	return chalk `{cyan {bold.red (SKIPPED)} TIMELINE EMPTY!}`
 };
@@ -180,7 +170,7 @@ const Excute = async function (User, TargetUsername, Text, Sleep, ittyw) {
 		const getTarget = await Target(TargetUsername);
 		console.log(chalk `{green ! ${TargetUsername}:${getTarget}}`);
 		const getFollowers = await Followers(doLogin.session, doLogin.account.id);
-		console.log(chalk `{cyan ? Try to Follow, Comment, and Like Post/Media Target . . . \n}`)
+		console.log(chalk `{cyan ? Try to Comment, and Like Post/Media Target . . . \n}`)
 		var TargetResult = await Client.Media.likers(doLogin.session, getTarget);
 		TargetResult = _.chunk(TargetResult, ittyw);
 		console.log(chalk `{yellow ≡ READY TO START FLMAUTO WITH RATIO ${ittyw} TARGET/${Sleep} MiliSeconds\n}`)
